@@ -1,0 +1,23 @@
+<%# RWD: la tarjeta incluye TODO (picture/srcset + lista corta + tabla completa). CSS decide qué se ve. %>
+<% const sizes = '(max-width: 639px) 100vw, (max-width: 1024px) 50vw, 25vw';
+   const set = (fmt) => [400, 800, 1600].map(w => `/img/p${p.id}-${w}.${fmt} ${w}w`).join(', '); %>
+<article class="card" data-cat="<%= p.category %>" data-price="<%= p.price %>">
+  <picture>
+    <source type="image/avif" srcset="<%= set('avif') %>" sizes="<%= sizes %>">
+    <source type="image/webp" srcset="<%= set('webp') %>" sizes="<%= sizes %>">
+    <img src="/img/p<%= p.id %>-800.jpg" srcset="<%= set('jpg') %>" sizes="<%= sizes %>"
+         width="800" height="600" alt="<%= p.name %>">
+  </picture>
+  <div class="card-body">
+    <h3><%= p.name %></h3>
+    <p class="muted"><%= p.summary %></p>
+    <ul class="specs-short">
+      <% p.specs.slice(0, 3).forEach(s => { %><li><strong><%= s[0] %>:</strong> <%= s[1] %></li><% }) %>
+    </ul>
+    <table class="specs-full">
+      <% p.specs.forEach(s => { %><tr><th><%= s[0] %></th><td><%= s[1] %></td></tr><% }) %>
+    </table>
+    <div class="price">$<%= p.price.toLocaleString('en-US') %></div>
+    <button type="button" class="buy">Comprar</button>
+  </div>
+</article>

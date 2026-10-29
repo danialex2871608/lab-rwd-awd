@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Hardware - RWD</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <%- include('partials/header', { variant: 'RWD' }) %>
+  <div class="layout">
+    <%- include('partials/filters', { chart: true }) %>
+    <main>
+      <div class="grid" id="grid">
+        <% products.forEach(p => { %><%- include('partials/card-rwd', { p }) %><% }) %>
+      </div>
+    </main>
+  </div>
+  <script type="application/json" id="chart-data"><%- JSON.stringify(chartData) %></script>
+  <script src="/vendor/chart.umd.js" defer></script>
+  <script src="/js/chart-init.js" defer></script>
+  <script src="/js/filters.js" defer></script>
+</body>
+</html>

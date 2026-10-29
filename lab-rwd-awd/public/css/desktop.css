@@ -1,0 +1,5 @@
+/* AWD - vista desktop: layout fijo para rangos grandes, sin media queries. */
+.layout { grid-template-columns: 280px 1fr; align-items: start; }
+.grid   { grid-template-columns: repeat(3, 1fr); }
+.sidebar { position: sticky; top: 4.5rem; }
+.filters-toggle { display: none; }

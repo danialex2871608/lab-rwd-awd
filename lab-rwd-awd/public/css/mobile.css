@@ -1,0 +1,13 @@
+/* AWD - vista móvil: una columna, filtros en panel inferior. Sin media queries. */
+.layout { grid-template-columns: 1fr; }
+.grid   { grid-template-columns: 1fr; }
+
+.sidebar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  max-height: 70vh; overflow: auto;
+  border-radius: var(--radius) var(--radius) 0 0;
+  transform: translateY(100%);
+  transition: transform .25s ease;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .45);
+}
+body.filters-open .sidebar { transform: translateY(0); }

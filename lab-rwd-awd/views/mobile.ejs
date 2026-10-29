@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Hardware - AWD (móvil)</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/mobile.css">
+</head>
+<body>
+  <%- include('partials/header', { variant: 'AWD móvil' }) %>
+  <div class="layout">
+    <%# Sin gráfico de comparativa ni Chart.js en la versión móvil. %>
+    <%- include('partials/filters', { chart: false }) %>
+    <main>
+      <div class="grid" id="grid">
+        <% products.forEach(p => { %><%- include('partials/card-mobile', { p }) %><% }) %>
+      </div>
+    </main>
+  </div>
+  <script src="/js/filters.js" defer></script>
+</body>
+</html>

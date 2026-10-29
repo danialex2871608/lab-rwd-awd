@@ -1,0 +1,14 @@
+<aside class="sidebar" id="filters" aria-label="Filtros avanzados">
+  <h2>Filtros</h2>
+  <label for="f-cat">Categoría</label>
+  <select id="f-cat">
+    <option value="">Todas</option>
+    <% categories.forEach(c => { %><option value="<%= c %>"><%= c %></option><% }) %>
+  </select>
+  <label for="f-price">Precio máximo: <output id="f-price-out">25000</output> USD</label>
+  <input type="range" id="f-price" min="1000" max="25000" step="500" value="25000">
+  <p class="muted"><span id="f-count"><%= products.length %></span> productos</p>
+  <% if (chart) { %>
+  <div class="chart-box"><canvas id="compare-chart" aria-label="Comparativa de rendimiento y eficiencia"></canvas></div>
+  <% } %>
+</aside>

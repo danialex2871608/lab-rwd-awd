@@ -1,0 +1,12 @@
+<%# AWD móvil: imagen de 400 px, solo 3 especificaciones, SIN tabla completa en el DOM. %>
+<article class="card" data-cat="<%= p.category %>" data-price="<%= p.price %>">
+  <img src="/img/p<%= p.id %>-400.webp" width="400" height="300" alt="<%= p.name %>">
+  <div class="card-body">
+    <h3><%= p.name %></h3>
+    <ul class="specs-short">
+      <% p.specs.slice(0, 3).forEach(s => { %><li><strong><%= s[0] %>:</strong> <%= s[1] %></li><% }) %>
+    </ul>
+    <div class="price">$<%= p.price.toLocaleString('en-US') %></div>
+    <button type="button" class="buy">Comprar</button>
+  </div>
+</article>

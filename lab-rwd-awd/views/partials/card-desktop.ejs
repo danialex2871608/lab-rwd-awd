@@ -1,0 +1,13 @@
+<%# AWD desktop: imagen de 800 px (una sola URL) y tabla completa de especificaciones. %>
+<article class="card" data-cat="<%= p.category %>" data-price="<%= p.price %>">
+  <img src="/img/p<%= p.id %>-800.webp" width="800" height="600" alt="<%= p.name %>">
+  <div class="card-body">
+    <h3><%= p.name %></h3>
+    <p class="muted"><%= p.summary %></p>
+    <table class="specs-full">
+      <% p.specs.forEach(s => { %><tr><th><%= s[0] %></th><td><%= s[1] %></td></tr><% }) %>
+    </table>
+    <div class="price">$<%= p.price.toLocaleString('en-US') %></div>
+    <button type="button" class="buy">Comprar</button>
+  </div>
+</article>
